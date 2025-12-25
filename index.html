@@ -13,7 +13,7 @@
         margin: 0;
         padding: 0;
         font-family: 'Press Start 2P', cursive;
-        background-image: url('background.jpg');
+        background-image: url('./background.jpg');
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -158,7 +158,9 @@
 </head>
 <body>
     <div class="container" id="content">
-        <div class="pixel-img">🍃</div>
+        <div class="pixel-img">
+<img src="./Gemini_Generated_Image_35z0d235z0d235z0.png" alt="Tree" onerror="this.style.display='none'; this.parentElement.innerHTML='🌳';">
+        </div>
         <h1>Hello :)</h1>
         <p class="subtitle">What's the color of my leaf?</p>
         <button class="btn-primary" onclick="startKey()">Continue</button>
@@ -184,7 +186,7 @@
     function showQuestion2() {
         document.getElementById('content').innerHTML = `
             <div class="pixel-img">
-                <img src="./green_yellow.png" alt="Leaf" onerror="this.style.display='none'; this.parentElement.innerHTML='🍂';">
+               <img src="./Gemini_Generated_Image_35z0d235z0d235z0.png" alt="Tree" onerror="this.style.display='none'; this.parentElement.innerHTML='🌳';">
             </div>
             <p class="question">Is the chlorophyll fully decomposed?</p>
             <button class="btn-yes" onclick="showQuestion3()">Yes</button>
@@ -195,7 +197,7 @@
     function showQuestion3() {
         document.getElementById('content').innerHTML = `
             <div class="pixel-img">
-                <img src="./yellow_orange.png" alt="Autumn" onerror="this.style.display='none'; this.parentElement.innerHTML='🍁';">
+               <img src="./Gemini_Generated_Image_35z0d235z0d235z0.png" alt="Tree" onerror="this.style.display='none'; this.parentElement.innerHTML='🌳';">
             </div>
             <p class="question">Is the tree synthesizing anthocyanin in autumn?</p>
             <button class="btn-yes" onclick="resultRedPurple()">Yes</button>
@@ -249,7 +251,9 @@
     
     function endProgram() {
         document.getElementById('content').innerHTML = `
-            <div class="pixel-img">🌿</div>
+            <div class="pixel-img">
+            <img src="./Gemini_Generated_Image_35z0d235z0d235z0.png" alt="Tree" onerror="this.style.display='none'; this.parentElement.innerHTML='🌳';">
+            </div>
             <h1>Thank you!</h1>
             <p class="subtitle">Hope you learned about leaf colors!</p>
             <button class="btn-primary" onclick="startKey()">Start Over</button>
