@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaf Color Dichotomy Key</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+```
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Press Start 2P', cursive;
+        background-image: url('background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        image-rendering: pixelated;
+        position: relative;
+    }
+    
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.3);
+        z-index: 1;
+    }
+    
+    .container {
+        background: white;
+        border: 8px dashed #ff0000;
+        padding: 40px;
+        max-width: 700px;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    
+    .pixel-img {
+        width: 200px;
+        height: 200px;
+        margin: 20px auto;
+        background: white;
+        border: 6px dashed #ff0000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: #ff0000;
+        image-rendering: pixelated;
+    }
+    
+    .pixel-img img {
+        max-width: 100%;
+        max-height: 100%;
+        image-rendering: pixelated;
+    }
+    
+    h1 {
+        font-size: 28px;
+        color: #00cc00;
+        margin: 20px 0;
+        text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    .subtitle {
+        font-size: 20px;
+        color: #ffcc00;
+        margin: 20px 0;
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    .question {
+        font-size: 18px;
+        color: #ff0000;
+        margin: 30px 0;
+        line-height: 1.8;
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    }
+    
+    .result {
+        font-size: 22px;
+        color: #ff0000;
+        margin: 20px 0;
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    }
+    
+    button {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 16px;
+        padding: 15px 30px;
+        margin: 15px 10px;
+        border: 4px dashed #ff0000;
+        cursor: pointer;
+        transition: all 0.1s;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    button:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    button:active {
+        transform: translate(3px, 3px);
+        box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn-primary {
+        background: white;
+        color: #ff0000;
+    }
+    
+    .btn-yes {
+        background: #00cc00;
+        color: white;
+        border-color: #00cc00;
+    }
+    
+    .btn-no {
+        background: #ff0000;
+        color: white;
+        border-color: #ff0000;
+    }
+    
+    .btn-try-again {
+        background: #ffcc00;
+        color: white;
+        border-color: #ffcc00;
+    }
+    
+    .btn-end {
+        background: #ff0000;
+        color: white;
+        border-color: #ff0000;
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="pixel-img">🍃</div>
+        <h1>Hello :)</h1>
+        <p class="subtitle">What's the color of my leaf?</p>
+        <button class="btn-primary" onclick="startKey()">Continue</button>
+    </div>
+
+```
+<script>
+    function startKey() {
+        showQuestion1();
+    }
+    
+    function showQuestion1() {
+        document.getElementById('content').innerHTML = `
+            <div class="pixel-img">
+                <img src="Gemini_Generated_Image_35z0d235z0d235z0.png" alt="Tree" onerror="this.style.display='none'; this.parentElement.innerHTML='🌳';">
+            </div>
+            <p class="question">Is the tree synthesizing chlorophyll?</p>
+            <button class="btn-yes" onclick="resultGreen()">Yes</button>
+            <button class="btn-no" onclick="showQuestion2()">No</button>
+        `;
+    }
+    
+    function showQuestion2() {
+        document.getElementById('content').innerHTML = `
+            <div class="pixel-img">
+                <img src="Gemini_Generated_Image_35z0d235z0d235z0.png" alt="Leaf" onerror="this.style.display='none'; this.parentElement.innerHTML='🍂';">
+            </div>
+            <p class="question">Is the chlorophyll fully decomposed?</p>
+            <button class="btn-yes" onclick="showQuestion3()">Yes</button>
+            <button class="btn-no" onclick="resultGreenYellow()">No</button>
+        `;
+    }
+    
+    function showQuestion3() {
+        document.getElementById('content').innerHTML = `
+            <div class="pixel-img">
+                <img src="Gemini_Generated_Image_35z0d235z0d235z0.png" alt="Autumn" onerror="this.style.display='none'; this.parentElement.innerHTML='🍁';">
+            </div>
+            <p class="question">Is the tree synthesizing anthocyanin in autumn?</p>
+            <button class="btn-yes" onclick="resultRedPurple()">Yes</button>
+            <button class="btn-no" onclick="resultYellowOrange()">No</button>
+        `;
+    }
+    
+    function resultGreen() {
+        document.getElementById('content').innerHTML = `
+            <div class="pixel-img">
+                <img src="green.png" alt="Green Leaf" onerror="this.style.display='none'; this.parentElement.innerHTML='🍃';">
+            </div>
+            <p class="result">Your leaf is green!</p>
+            <button class="btn-try-again" onclick="startKey()">Try Again</button>
+            <button class="btn-end" onclick="endProgram()">End</button>
+        `;
+    }
+    
+    function resultGreenYellow() {
+        document.getElementById('content').innerHTML = `
+            <div class="pixel-img">
+                <img src="green_yellow.png" alt="Green Yellow Leaf" onerror="this.style.display='none'; this.parentElement.innerHTML='🍂';">
+            </div>
+            <p class="result">Your leaf is green and yellow in mixed color!</p>
+            <button class="btn-try-again" onclick="startKey()">Try Again</button>
+            <button class="btn-end" onclick="endProgram()">End</button>
+        `;
+    }
+    
+    function resultYellowOrange() {
+        document.getElementById('content').innerHTML = `
+            <div class="pixel-img">
+                <img src="yellow_orange.png" alt="Yellow Orange Leaf" onerror="this.style.display='none'; this.parentElement.innerHTML='🍊';">
+            </div>
+            <p class="result">Your leaf is yellow or orange!</p>
+            <button class="btn-try-again" onclick="startKey()">Try Again</button>
+            <button class="btn-end" onclick="endProgram()">End</button>
+        `;
+    }
+    
+    function resultRedPurple() {
+        document.getElementById('content').innerHTML = `
+            <div class="pixel-img">
+                <img src="red_purple.png" alt="Red Purple Leaf" onerror="this.style.display='none'; this.parentElement.innerHTML='🍁';">
+            </div>
+            <p class="result">Your leaf is red or purple!</p>
+            <button class="btn-try-again" onclick="startKey()">Try Again</button>
+            <button class="btn-end" onclick="endProgram()">End</button>
+        `;
+    }
+    
+    function endProgram() {
+        document.getElementById('content').innerHTML = `
+            <div class="pixel-img">🌿</div>
+            <h1>Thank you!</h1>
+            <p class="subtitle">Hope you learned about leaf colors!</p>
+            <button class="btn-primary" onclick="startKey()">Start Over</button>
+        `;
+    }
+</script>
+```
+
+</body>
+</html>
